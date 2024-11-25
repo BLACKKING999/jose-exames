@@ -1,0 +1,105 @@
+<<<<<<< HEAD
+<div class="container mt-4">
+  <h2 class="text-center mb-4 text-primary">
+    <i class="fas fa-book-open"></i> Death Note Characters
+  </h2>
+
+  <!-- Search -->
+  <div class="row mb-4">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <div class="row g-3">
+            <!-- Search by Name -->
+            <div class="col">
+              <div class="input-group">
+                <input type="text" 
+                       class="form-control" 
+                       [(ngModel)]="searchTerm" 
+                       placeholder="Search by name..."
+                       (keyup.enter)="onSearch()">
+                <button class="btn btn-primary" 
+                        type="button" 
+                        [disabled]="isLoading" 
+                        (click)="onSearch()">
+                  <i class="fas fa-search"></i> Search
+                </button>
+              </div>
+            </div>
+
+            <!-- Clear Button -->
+            <div class="col-md-2">
+              <button *ngIf="searchTerm" 
+                      class="btn btn-secondary w-100" 
+                      type="button" 
+                      [disabled]="isLoading" 
+                      (click)="clearSearch()">
+                <i class="fas fa-times"></i> Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading indicator -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- No results message -->
+  <div *ngIf="noResults && !isLoading" class="alert alert-info text-center my-4">
+    <i class="fas fa-info-circle"></i> No results found
+  </div>
+
+  <!-- Results -->
+  <app-card-list *ngIf="!isLoading && !noResults"
+                 [items]="characters"
+                 (cardClick)="onCharacterSelect($event)">
+  </app-card-list>
+
+  <!-- Character Modal -->
+  <div class="modal fade" [class.show]="selectedCharacter" id="characterModal" tabindex="-1" [style.display]="selectedCharacter ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="fas fa-user"></i> {{selectedCharacter?.name}}
+          </h5>
+          <button type="button" class="btn-close" (click)="selectedCharacter = null"></button>
+        </div>
+        <div class="modal-body" *ngIf="selectedCharacter">
+          <div class="text-center mb-3">
+            <img [src]="selectedCharacter.image" [alt]="selectedCharacter.name" class="img-fluid rounded">
+          </div>
+          <p><strong>Alias:</strong> {{selectedCharacter.alias}}</p>
+          <p><strong>Description:</strong> {{selectedCharacter.description}}</p>
+          <p><strong>Status:</strong> <span [class.text-success]="selectedCharacter.status === 'Alive'" 
+                                           [class.text-danger]="selectedCharacter.status === 'Deceased'">
+              {{selectedCharacter.status}}
+            </span></p>
+          <p><strong>Intelligence:</strong> {{selectedCharacter.intelligence}}/10</p>
+          <p><strong>Death Note Owner:</strong> <i [class.text-success]="selectedCharacter.deathNoteOwner" 
+                                                 [class.text-danger]="!selectedCharacter.deathNoteOwner" 
+                                                 class="fas" 
+                                                 [ngClass]="{'fa-check': selectedCharacter.deathNoteOwner, 'fa-times': !selectedCharacter.deathNoteOwner}"></i></p>
+          <p><strong>Shinigami:</strong> <i [class.text-success]="selectedCharacter.shinigami" 
+                                           [class.text-danger]="!selectedCharacter.shinigami" 
+                                           class="fas" 
+                                           [ngClass]="{'fa-check': selectedCharacter.shinigami, 'fa-times': !selectedCharacter.shinigami}"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+=======
+<div *ngFor="let character of characters">
+    <h3>{{ character.name }}</h3>
+    <p>{{ character.description }}</p>
+    <img [src]="character.imageUrl" alt="{{ character.name }}">
+  </div>
+  
+>>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e

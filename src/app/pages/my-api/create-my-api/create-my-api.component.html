@@ -1,0 +1,118 @@
+<div class="container mt-5">
+  <h2 class="text-center">Crear/Actualizar Personaje</h2>
+  <form (ngSubmit)="onSubmit()" #characterForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="character.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="alias">Alias:</label>
+      <input type="text" class="form-control" id="alias" [(ngModel)]="character.alias" name="alias">
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción:</label>
+      <textarea class="form-control" id="description" required [(ngModel)]="character.description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="deathNoteOwner">Propietario del Death Note:</label>
+      <input type="checkbox" [(ngModel)]="character.deathNoteOwner" name="deathNoteOwner">
+    </div>
+    <div class="form-group">
+      <label for="shinigami">Shinigami:</label>
+      <input type="checkbox" [(ngModel)]="character.shinigami" name="shinigami">
+    </div>
+    <div class="form-group">
+      <label for="intelligence">Inteligencia (1-10):</label>
+      <input type="number" class="form-control" id="intelligence" min="1" max="10" [(ngModel)]="character.intelligence" name="intelligence">
+    </div>
+    <div class="form-group">
+      <label for="image">Imagen URL:</label>
+      <input type="text" class="form-control" id="image" [(ngModel)]="character.image" name="image">
+    </div>
+    <div class="form-group">
+      <label for="status">Estado:</label>
+      <select class="form-control" id="status" [(ngModel)]="character.status" name="status">
+        <option value="Vivo">Vivo</option>
+        <option value="Fallecido">Fallecido</option>
+        <option value="Desconocido">Desconocido</option>
+      </select>
+    </div>
+    
+    <!-- Nueva sección de habilidades -->
+    <div class="form-group">
+      <label>Habilidades:</label>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" 
+               [(ngModel)]="newAbility" 
+               name="newAbility" 
+               (keyup.enter)="addAbility()"
+               placeholder="Ingrese una habilidad">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="addAbility()">
+            Añadir
+          </button>
+        </div>
+      </div>
+      
+      <!-- Mostrar lista de habilidades -->
+      <div *ngIf="character.abilities.length > 0" class="mb-2">
+        <span *ngFor="let ability of character.abilities" 
+              class="badge badge-secondary mr-2 mb-1">
+          {{ ability }}
+          <button class="btn btn-sm btn-danger ml-1" 
+                  (click)="removeAbility(ability)">
+            &times;
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ isEditing ? 'Actualizar Personaje' : 'Crear Personaje' }}</button>
+  </form>
+
+  <div *ngIf="message" class="alert mt-3" [ngClass]="{'alert-success': success, 'alert-danger': !success}">
+    {{ message }}
+  </div>
+
+  <h3 class="mt-5">Lista de Personajes</h3>
+  
+  <!-- Search input -->
+  <div class="form-group">
+    <div class="input-group mb-3">
+      <input type="text" 
+             class="form-control" 
+             placeholder="Buscar personaje por nombre" 
+             [(ngModel)]="searchTerm" 
+             (input)="searchCharacters()"
+             name="searchTerm">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+          <i class="fa fa-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Alias</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="filteredCharacters.length === 0">
+        <td colspan="3" class="text-center">No se encontraron personajes</td>
+      </tr>
+      <tr *ngFor="let char of filteredCharacters">
+        <td>{{ char.name }}</td>
+        <td>{{ char.alias }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="editCharacter(char)">Editar</button>
+          <button class="btn btn-danger" (click)="deleteCharacter(char._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

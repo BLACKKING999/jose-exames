@@ -1,0 +1,6 @@
+[build]
+command = "ng build --configuration production"
+publish = "dist/pratica-de-mi-app/browser"
+
+[build.environment]
+NODE_VERSION = "22.11.0"
