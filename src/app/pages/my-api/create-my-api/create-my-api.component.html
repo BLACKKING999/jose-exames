@@ -1,100 +1,88 @@
 <div class="container mt-5">
-  <h2 class="text-center">Crear/Actualizar Personaje</h2>
-  <form (ngSubmit)="onSubmit()" #characterForm="ngForm">
+  <h2 class="text-center text-primary">
+    <i class="fas fa-user-plus"></i> Crear/Actualizar Personaje
+  </h2>
+  <form (ngSubmit)="onSubmit()" #characterForm="ngForm" class="shadow p-4 rounded bg-light">
     <div class="form-group">
-      <label for="name">Nombre:</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="character.name" name="name">
+      <label for="name"><i class="fas fa-signature"></i> Nombre:</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="character.name" name="name" placeholder="Ingrese el nombre">
     </div>
     <div class="form-group">
-      <label for="alias">Alias:</label>
-      <input type="text" class="form-control" id="alias" [(ngModel)]="character.alias" name="alias">
+      <label for="alias"><i class="fas fa-user-secret"></i> Alias:</label>
+      <input type="text" class="form-control" id="alias" [(ngModel)]="character.alias" name="alias" placeholder="Ingrese el alias">
     </div>
     <div class="form-group">
-      <label for="description">Descripción:</label>
-      <textarea class="form-control" id="description" required [(ngModel)]="character.description" name="description"></textarea>
+      <label for="description"><i class="fas fa-pencil-alt"></i> Descripción:</label>
+      <textarea class="form-control" id="description" required [(ngModel)]="character.description" name="description" placeholder="Describa al personaje"></textarea>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="deathNoteOwner" [(ngModel)]="character.deathNoteOwner" name="deathNoteOwner">
+      <label class="form-check-label" for="deathNoteOwner"><i class="fas fa-book"></i> Propietario del Death Note</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="shinigami" [(ngModel)]="character.shinigami" name="shinigami">
+      <label class="form-check-label" for="shinigami"><i class="fas fa-ghost"></i> Shinigami</label>
     </div>
     <div class="form-group">
-      <label for="deathNoteOwner">Propietario del Death Note:</label>
-      <input type="checkbox" [(ngModel)]="character.deathNoteOwner" name="deathNoteOwner">
-    </div>
-    <div class="form-group">
-      <label for="shinigami">Shinigami:</label>
-      <input type="checkbox" [(ngModel)]="character.shinigami" name="shinigami">
-    </div>
-    <div class="form-group">
-      <label for="intelligence">Inteligencia (1-10):</label>
+      <label for="intelligence"><i class="fas fa-brain"></i> Inteligencia (1-10):</label>
       <input type="number" class="form-control" id="intelligence" min="1" max="10" [(ngModel)]="character.intelligence" name="intelligence">
     </div>
     <div class="form-group">
-      <label for="image">Imagen URL:</label>
-      <input type="text" class="form-control" id="image" [(ngModel)]="character.image" name="image">
+      <label for="image"><i class="fas fa-image"></i> Imagen URL:</label>
+      <input type="text" class="form-control" id="image" [(ngModel)]="character.image" name="image" placeholder="URL de la imagen">
     </div>
     <div class="form-group">
-      <label for="status">Estado:</label>
+      <label for="status"><i class="fas fa-heartbeat"></i> Estado:</label>
       <select class="form-control" id="status" [(ngModel)]="character.status" name="status">
         <option value="Vivo">Vivo</option>
         <option value="Fallecido">Fallecido</option>
         <option value="Desconocido">Desconocido</option>
       </select>
     </div>
-    
-    <!-- Nueva sección de habilidades -->
     <div class="form-group">
-      <label>Habilidades:</label>
+      <label><i class="fas fa-star"></i> Habilidades:</label>
       <div class="input-group mb-2">
-        <input type="text" class="form-control" 
-               [(ngModel)]="newAbility" 
-               name="newAbility" 
-               (keyup.enter)="addAbility()"
-               placeholder="Ingrese una habilidad">
+        <input type="text" class="form-control" [(ngModel)]="newAbility" name="newAbility" (keyup.enter)="addAbility()" placeholder="Ingrese una habilidad">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button" (click)="addAbility()">
-            Añadir
+            <i class="fas fa-plus"></i> Añadir
           </button>
         </div>
       </div>
-      
-      <!-- Mostrar lista de habilidades -->
       <div *ngIf="character.abilities.length > 0" class="mb-2">
-        <span *ngFor="let ability of character.abilities" 
-              class="badge badge-secondary mr-2 mb-1">
+        <span *ngFor="let ability of character.abilities" class="badge badge-info mr-2 mb-1">
           {{ ability }}
-          <button class="btn btn-sm btn-danger ml-1" 
-                  (click)="removeAbility(ability)">
-            &times;
+          <button class="btn btn-sm btn-danger ml-1" (click)="removeAbility(ability)">
+            <i class="fas fa-times"></i>
           </button>
         </span>
       </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">{{ isEditing ? 'Actualizar Personaje' : 'Crear Personaje' }}</button>
+    <button type="submit" class="btn btn-success">
+      <i class="fas fa-save"></i> {{ isEditing ? 'Actualizar Personaje' : 'Crear Personaje' }}
+    </button>
   </form>
 
   <div *ngIf="message" class="alert mt-3" [ngClass]="{'alert-success': success, 'alert-danger': !success}">
     {{ message }}
   </div>
 
-  <h3 class="mt-5">Lista de Personajes</h3>
-  
-  <!-- Search input -->
+  <h3 class="mt-5 text-secondary">
+    <i class="fas fa-list"></i> Lista de Personajes
+  </h3>
   <div class="form-group">
     <div class="input-group mb-3">
-      <input type="text" 
-             class="form-control" 
-             placeholder="Buscar personaje por nombre" 
-             [(ngModel)]="searchTerm" 
-             (input)="searchCharacters()"
-             name="searchTerm">
+      <input type="text" class="form-control" placeholder="Buscar personaje por nombre" [(ngModel)]="searchTerm" (input)="searchCharacters()" name="searchTerm">
       <div class="input-group-append">
         <button class="btn btn-primary" type="button">
-          <i class="fa fa-search"></i> Buscar
+          <i class="fas fa-search"></i> Buscar
         </button>
       </div>
     </div>
   </div>
 
-  <table class="table table-striped">
-    <thead>
+  <table class="table table-hover">
+    <thead class="thead-dark">
       <tr>
         <th>Nombre</th>
         <th>Alias</th>
@@ -109,8 +97,12 @@
         <td>{{ char.name }}</td>
         <td>{{ char.alias }}</td>
         <td>
-          <button class="btn btn-warning" (click)="editCharacter(char)">Editar</button>
-          <button class="btn btn-danger" (click)="deleteCharacter(char._id)">Eliminar</button>
+          <button class="btn btn-warning btn-sm" (click)="editCharacter(char)">
+            <i class="fas fa-edit"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteCharacter(char._id)">
+            <i class="fas fa-trash-alt"></i> Eliminar
+          </button>
         </td>
       </tr>
     </tbody>
