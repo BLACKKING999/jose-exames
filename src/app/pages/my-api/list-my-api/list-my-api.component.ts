@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { DeathNoteService, Character } from '../../../services/death-note.service';
 import { CardListComponent } from '../../../card-list/card-list.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-=======
-// /pages/my-api/list-my-api/list-my-api.component.ts
-import { Component, OnInit } from '@angular/core';
-import { DeathNoteCharacter, DeathNoteService } from '../../../services/death-note.service';
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
 
 @Component({
   selector: 'app-list-my-api',
   templateUrl: './list-my-api.component.html',
-<<<<<<< HEAD
   standalone: true,
   imports: [CommonModule, FormsModule, CardListComponent]
 })
@@ -78,28 +71,4 @@ export class ListMyApiComponent implements OnInit {
     this.searchTerm = '';
     this.loadCharacters();
   }
-=======
-  styleUrls: ['./list-my-api.component.css']
-})
-export class ListMyApiComponent implements OnInit {
-  characters: DeathNoteCharacter[] = [];
-
-  constructor(private deathNoteService: DeathNoteService) {}
-
-  ngOnInit() {
-    this.loadCharacters();
-  }
-
-  loadCharacters() {
-    this.deathNoteService.getCharacters().subscribe(characters => {
-      this.characters = characters;
-    });
-  }
-
-  deleteCharacter(id: string) {
-    this.deathNoteService.deleteCharacter(id).subscribe(() => {
-      this.loadCharacters();
-    });
-  }
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
 }
