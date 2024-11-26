@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 export interface Character {
-=======
-// /services/death-note.service.ts
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-export interface DeathNoteCharacter {
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
   _id: string;
   name: string;
   alias: string;
@@ -26,20 +17,16 @@ export interface DeathNoteCharacter {
   relationships: any[];
 }
 
-<<<<<<< HEAD
 export interface ApiResponse {
   success: boolean;
   count?: number; // count es opcional en algunas respuestas
   data: Character[] | Character; // Puede ser un array o un solo objeto
 }
 
-=======
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
 @Injectable({
   providedIn: 'root'
 })
 export class DeathNoteService {
-<<<<<<< HEAD
   private apiUrl = 'https://death-note-api-1.onrender.com/api/characters';
 
   constructor(private http: HttpClient) {}
@@ -110,29 +97,5 @@ export class DeathNoteService {
       // Retornar un objeto vacío como respuesta
       return of({ success: false, data: [] } as unknown as T); // Retornar un objeto que indique el fallo
     };
-=======
-  private apiUrl = 'http://localhost:4000/api/characters';
-
-  constructor(private http: HttpClient) {}
-
-  getCharacters(): Observable<DeathNoteCharacter[]> {
-    return this.http.get<DeathNoteCharacter[]>(this.apiUrl);
-  }
-
-  getCharacterById(id: string): Observable<DeathNoteCharacter> {
-    return this.http.get<DeathNoteCharacter>(`${this.apiUrl}/${id}`);
-  }
-
-  createCharacter(character: DeathNoteCharacter): Observable<DeathNoteCharacter> {
-    return this.http.post<DeathNoteCharacter>(this.apiUrl, character);
-  }
-
-  updateCharacter(id: string, character: DeathNoteCharacter): Observable<DeathNoteCharacter> {
-    return this.http.put<DeathNoteCharacter>(`${this.apiUrl}/${id}`, character);
-  }
-
-  deleteCharacter(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
   }
 }
