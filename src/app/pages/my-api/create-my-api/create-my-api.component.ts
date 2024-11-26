@@ -1,38 +1,23 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { DeathNoteService, Character, ApiResponse } from '../../../services/death-note.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-=======
-// /pages/my-api/create-my-api/create-my-api.component.ts
-import { Component } from '@angular/core';
-import { DeathNoteCharacter, DeathNoteService } from '../../../services/death-note.service';
-import { Router } from '@angular/router';
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
 
 @Component({
   selector: 'app-create-my-api',
   templateUrl: './create-my-api.component.html',
-<<<<<<< HEAD
   styleUrls: ['./create-my-api.component.css'],
   standalone: true,
   imports: [CommonModule, FormsModule]
 })
 export class CreateMyApiComponent implements OnInit {
   character: Character = {
-=======
-  styleUrls: ['./create-my-api.component.css']
-})
-export class CreateMyApiComponent {
-  newCharacter: DeathNoteCharacter = {
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
     _id: '',
     name: '',
     alias: '',
     description: '',
     deathNoteOwner: false,
     shinigami: false,
-<<<<<<< HEAD
     intelligence: 1,
     image: '',
     abilities: [],
@@ -162,20 +147,5 @@ export class CreateMyApiComponent {
     this.message = '';
     this.isEditing = false;
     this.newAbility = '';
-=======
-    intelligence: 0,
-    image: '',
-    abilities: [],
-    status: '',
-    relationships: []
-  };
-
-  constructor(private deathNoteService: DeathNoteService, private router: Router) {}
-
-  createCharacter() {
-    this.deathNoteService.createCharacter(this.newCharacter).subscribe(() => {
-      this.router.navigate(['/my-api/list']);
-    });
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
   }
 }
