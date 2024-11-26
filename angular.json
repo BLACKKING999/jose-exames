@@ -24,6 +24,7 @@
               {
                 "glob": "**/*",
                 "input": "public"
+
               },
               {
                 "glob": "**/*",
@@ -36,39 +37,32 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/animate.css/animate.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-<<<<<<< HEAD
 
-=======
->>>>>>> 5007b7c941b1f86d7773da2c742958628ded106e
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+             
+
             ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            },
-            "allowedCommonJsDependencies": [
-              "@firebase/auth",
-              "@firebase/firestore",
-              "@grpc/grpc-js",
-              "@grpc/proto-loader"
-            ]
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.5mb",
-                  "maximumError": "2MB"
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "1.5mb",
-                  "maximumError": "3.5mb"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
