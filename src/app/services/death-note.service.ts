@@ -40,7 +40,7 @@ export interface ApiResponse {
 })
 export class DeathNoteService {
 <<<<<<< HEAD
-  private apiUrl = 'http://localhost:4001/api/characters';
+  private apiUrl = 'https://death-note-api-1.onrender.com/api/characters';
 
   constructor(private http: HttpClient) {}
 
