@@ -16,7 +16,7 @@ export const routes: Routes = [
   {
     path: 'my-api',
     loadChildren: () => import('./pages/my-api/my-api.module').then(m => m.MyApiModule),
-    canActivate: [AuthGuard] // Se añade AuthGuard para proteger esta ruta
+   // Se añade AuthGuard para proteger esta ruta
   },
 ];
 
