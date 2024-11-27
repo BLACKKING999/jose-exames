@@ -1,88 +1,138 @@
-<header class="text-center py-5 bg-danger text-white">
-  <h1 class="display-4 fw-bold">Bienvenido a Servicio de Ayuda Estudiantil</h1>
-  <p class="lead">Tu aliado para el éxito académico</p>
-</header>
-
-<div class="container mt-5">
-  <p class="fs-5 text-muted">¿Problemas para mantener el ritmo en tus estudios universitarios? Te ofrecemos la solución perfecta para mejorar tu rendimiento académico sin dejar de lado tus otras responsabilidades. Nuestro servicio conecta a estudiantes universitarios con tutores expertos que pueden ayudarte a realizar tus tareas por una compensación económica, de manera rápida, segura y eficiente.</p>
-
-  <h2 class="text-danger mt-5">¿Cómo funciona?</h2>
-  <ol class="fs-5 mt-3">
-      <li><strong>Explora nuestro catálogo de servicios:</strong> Consulta una amplia gama de opciones que van desde ensayos, resúmenes, hasta proyectos complejos en distintas áreas de estudio.</li>
-      <li class="mt-2"><strong>Personaliza tu pedido:</strong> Si tienes necesidades específicas, simplemente llena el formulario y dinos exactamente lo que necesitas. Te conectaremos con un tutor adecuado que realice la tarea según tus instrucciones.</li>
-      <li class="mt-2"><strong>Entrega y pago seguro:</strong> Todos los trabajos se entregan dentro de los plazos establecidos, y los pagos se gestionan de forma segura a través de nuestra plataforma.</li>
-  </ol>
-
-  <h2 class="text-danger mt-5">Beneficios de nuestro servicio</h2>
-  <div class="benefits row text-center mt-4">
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="p-3 border rounded shadow-sm">
-              <i class="fas fa-check-circle fa-3x text-success"></i>
-              <h5 class="mt-3">Personalización Completa</h5>
-              <p>Recibe trabajos hechos a medida, adaptados a tus requisitos académicos.</p>
-          </div>
+<!-- Hero Section -->
+<div class="container-fluid bg-primary text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-4">Explora el Mundo de las APIs</h1>
+        <p class="lead mb-4">Descubre información sobre Dragon Ball, Pokémon y deliciosos cócteles en nuestra plataforma.</p>
+        <div class="d-flex gap-3">
+          <button class="btn btn-light btn-lg" routerLink="/dbz">
+            <i class="fas fa-dragon me-2"></i>Comenzar
+          </button>
+          <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#dragonBallModal">
+            <i class="fas fa-info-circle me-2"></i>Más Info
+          </button>
+        </div>
       </div>
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="p-3 border rounded shadow-sm">
-              <i class="fas fa-lock fa-3x text-primary"></i>
-              <h5 class="mt-3">Seguridad Garantizada</h5>
-              <p>Protegemos tu información con altos estándares de seguridad.</p>
-          </div>
+      <div class="col-lg-6 text-center">
+       <img src="DBSZ_Top_-_Steam_Gif_Breath_Taking_3D_Fight.gif" alt="API Personal" class="img-fluid rounded shadow">
       </div>
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="p-3 border rounded shadow-sm">
-              <i class="fas fa-clock fa-3x text-warning"></i>
-              <h5 class="mt-3">Ahorra Tiempo</h5>
-              <p>Dedica tiempo a otras responsabilidades mientras nos encargamos de tus tareas.</p>
-          </div>
-      </div>
-      <div class="col-md-6 col-lg-3 mb-4">
-          <div class="p-3 border rounded shadow-sm">
-              <i class="fas fa-graduation-cap fa-3x text-secondary"></i>
-              <h5 class="mt-3">Tutores Expertos</h5>
-              <p>Trabajamos con estudiantes avanzados y graduados que te ofrecen un servicio de calidad.</p>
-          </div>
-      </div>
+    </div>
   </div>
-
-  <h2 class="text-danger mt-5">Nuestros Servicios</h2>
-  <div class="services row text-center mt-4">
-      <div class="col-md-6 col-lg-4 mb-4">
-          <i class="fas fa-file-alt fa-2x text-primary"></i>
-          <p class="mt-2">Ensayos personalizados</p>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-          <i class="fas fa-book fa-2x text-success"></i>
-          <p class="mt-2">Proyectos de investigación</p>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-          <i class="fas fa-file-text fa-2x text-warning"></i>
-          <p class="mt-2">Resúmenes y análisis de textos</p>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-          <i class="fas fa-calculator fa-2x text-danger"></i>
-          <p class="mt-2">Tareas técnicas</p>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-          <i class="fas fa-edit fa-2x text-secondary"></i>
-          <p class="mt-2">Correcciones y revisiones</p>
-      </div>
-  </div>
-
-  <h2 class="text-danger mt-5">Nuestra Misión</h2>
-  <blockquote class="blockquote fs-5 bg-light p-4 rounded shadow-sm">
-      <p>"Nuestro compromiso es brindar a los estudiantes el apoyo y las herramientas necesarias para que puedan alcanzar sus metas académicas."</p>
-  </blockquote>
-
-
-
-  <h2 class="text-danger mt-5">Contáctanos</h2>
-  <p class="fs-5">¿Tienes preguntas? <a class="btn btn-primary btn-sm rounded-pill px-3" routerLink="/cocteles">Formulario de Contacto</a> Estamos aquí para ayudarte en cada paso del proceso.</p>
-
-  <h2 class="text-danger mt-5">¡Empieza hoy!</h2>
-  <p class="fs-5">Si quieres mejorar tu rendimiento académico sin preocuparte por las fechas límite, <a class="btn btn-success btn-sm rounded-pill px-3" routerLink="/cocteles">Solicita tu Tarea</a> y deja que nuestro equipo de expertos te ayude a alcanzar el éxito.</p>
 </div>
 
-<footer class="text-center bg-danger text-white p-4 mt-5">
-  <p>&copy; 2024 Servicio de Ayuda Estudiantil. Todos los derechos reservados.</p>
+<!-- Sección de Características -->
+<div class="container py-5">
+  <div class="row g-4">
+    <!-- Tarjeta Dragon Ball -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <div class="bg-warning p-3 rounded-circle d-inline-block mb-3">
+            <i class="fas fa-dragon fa-2x text-dark"></i>
+          </div>
+          <h3 class="card-title">Dragon Ball API</h3>
+          <p class="card-text">Explora el universo de Dragon Ball, conoce a tus personajes favoritos y sus transformaciones.</p>
+          <button class="btn btn-primary rounded-pill" routerLink="/dbz">
+            <i class="fas fa-chevron-right me-2"></i>Explorar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta Pokémon -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <div class="bg-danger p-3 rounded-circle d-inline-block mb-3">
+            <i class="fas fa-gamepad fa-2x text-white"></i>
+          </div>
+          <h3 class="card-title">Pokémon API</h3>
+          <p class="card-text">Descubre información detallada sobre todos los Pokémon, sus tipos y habilidades.</p>
+          <button class="btn btn-primary rounded-pill" routerLink="/pokemon">
+            <i class="fas fa-chevron-right me-2"></i>Descubrir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta Cócteles -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <div class="bg-success p-3 rounded-circle d-inline-block mb-3">
+            <i class="fas fa-cocktail fa-2x text-white"></i>
+          </div>
+          <h3 class="card-title">Cócteles API</h3>
+          <p class="card-text">Aprende a preparar deliciosos cócteles con nuestras recetas detalladas.</p>
+          <button class="btn btn-primary rounded-pill" routerLink="/cocteles">
+            <i class="fas fa-chevron-right me-2"></i>Preparar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sección API Personal -->
+<div class="container-fluid bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-4">Mi API Personal</h2>
+        <p class="lead mb-4">Gestiona tu propia información con nuestra API personalizada.</p>
+        <div class="d-flex gap-3">
+          <button class="btn btn-primary" routerLink="/my-api/list">
+            <i class="fas fa-list me-2"></i>Ver Lista
+          </button>
+          <button class="btn btn-outline-primary" routerLink="/my-api/create">
+            <i class="fas fa-plus me-2"></i>Crear Nuevo
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6">
+          <img src="Private-APIs-v5.png" alt="API Personal" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Información Dragon Ball -->
+<div class="modal fade" id="dragonBallModal" tabindex="-1" aria-labelledby="dragonBallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dragonBallModalLabel">Acerca de Dragon Ball API</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>¿Qué es esto?</h6>
+        <p>
+          La API de Dragon Ball es una API REST completa inspirada en la icónica serie de televisión Dragon Ball. Esta API otorga a los usuarios acceso a una extensa base de datos que cuenta con cientos de personajes, imágenes, transformaciones y planetas del universo Dragon Ball. Incluye información canónica derivada de varias series, incluyendo Dragon Ball Z, Dragon Ball GT, Dragon Ball Super, así como películas, y un toque de Dragon Ball Heroes.
+        </p>
+        <h6>¿Quién eres?</h6>
+        <p>
+          Soy Porozo Caicedo Jose, un chico que ama desarrollar cosas. Estudié en Relevant en el Polo de Contenidos Digitales en Málaga, y tengo una profunda pasión por Dragon Ball.
+        </p>
+        <h6>¿Por qué construiste esto?</h6>
+        <p>
+          Mi pasión por Dragon Ball y el deseo de ayudar a mis compañeros estudiantes me llevaron a desarrollar este recurso. Como estudiante, entiendo los desafíos que enfrentamos y quería contribuir con algo valioso para hacer el proceso de aprendizaje más agradable. Este proyecto es mi forma de combinar mi amor por Dragon Ball con un compromiso de apoyo a los estudiantes, proporcionando una herramienta útil. Es una iniciativa personalizada para hacer que aprender y explorar el universo de Dragon Ball sea un poco más emocionante y educativo para todos los involucrados.
+        </p>
+        <p>Consulta la documentación para comenzar.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-0">
+      <i class="fas fa-code me-2"></i>
+      Desarrollado con Angular y Bootstrap
+    </p>
+  </div>
 </footer>
